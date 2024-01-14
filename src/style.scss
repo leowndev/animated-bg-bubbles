@@ -29,5 +29,16 @@ body {
   &:nth-child(2) {
     margin-top: 1rem;
     background-color: red;
+    animation: moveInVertical 8s alternate ease-out infinite;
+  }
+}
+
+@keyframes moveInVertical {
+  0% {
+    transform: translateY(0%);
+  }
+
+  100% {
+    transform: translateY(-150%);
   }
 }

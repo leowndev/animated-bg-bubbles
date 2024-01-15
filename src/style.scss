@@ -1,6 +1,8 @@
 $bg-color: #313131;
 $color1: rgb(180, 240, 255);
 $color2: rgb(221, 74, 255);
+$color-cursor: rgb(140, 100, 255);
+$blending: hard-light;
 
 * {
   margin: 0;
@@ -9,6 +11,8 @@ $color2: rgb(221, 74, 255);
 }
 
 body {
+  cursor: none;
+  overflow: hidden;
   background-color: $bg-color;
 }
 
@@ -16,6 +20,7 @@ body {
   width: 100%;
   height: 100%;
   min-height: 100vh;
+  position: relative;
 
   display: grid;
   place-content: center;
@@ -34,29 +39,22 @@ body {
     )
     no-repeat;
 
-  mix-blend-mode: hard-light;
-
-  &:nth-child(2) {
-    position: absolute;
-    top: 40%;
-    left: 10%;
-
-    animation: moveInVertical 8s alternate ease-out infinite;
-    background: radial-gradient(
-        circle at center,
-        rgba($color2, 0.5) 20%,
-        rgba($color2, 0) 50%
-      )
-      no-repeat;
-  }
+  mix-blend-mode: $blending;
 }
 
-@keyframes moveInVertical {
-  0% {
-    transform: translate3d(200px, -150px, 0);
-  }
+.cursor {
+  position: absolute;
+  top: 0;
+  left: 0;
 
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
+  width: 10rem;
+  height: 10rem;
+  mix-blend-mode: $blending;
+
+  background: radial-gradient(
+      circle at center,
+      rgba($color-cursor, 0.5) 30%,
+      rgba($color-cursor, 0) 50%
+    )
+    no-repeat;
 }

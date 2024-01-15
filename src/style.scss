@@ -1,7 +1,8 @@
 $bg-color: #313131;
-$color1: rgb(180, 240, 255);
+$color1: rgb(140, 100, 255);
 $color2: rgb(221, 74, 255);
-$color-cursor: rgb(140, 100, 255);
+$color3: rgb(25, 174, 180);
+$color-cursor: rgb(180, 240, 255);
 $blending: hard-light;
 
 * {
@@ -29,8 +30,8 @@ body {
 }
 
 .circle {
-  width: 200px;
-  height: 200px;
+  width: 50rem;
+  height: 50rem;
   border-radius: 50%;
   background: radial-gradient(
       circle at center,
@@ -40,6 +41,30 @@ body {
     no-repeat;
 
   mix-blend-mode: $blending;
+
+  &:nth-child(2) {
+    position: absolute;
+    left: 60%;
+    top: -30%;
+    background: radial-gradient(
+        circle at center,
+        rgba($color2, 0.5) 30%,
+        rgba($color2, 0) 50%
+      )
+      no-repeat;
+  }
+
+  &:nth-child(3) {
+    height: 80rem;
+    position: absolute;
+    top: -20%;
+    background: radial-gradient(
+        circle at center,
+        rgba($color3, 0.5) 30%,
+        rgba($color3, 0) 50%
+      )
+      no-repeat;
+  }
 }
 
 .cursor {

@@ -15,7 +15,27 @@ $blending: hard-light;
 body {
   cursor: none;
   overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
   background: linear-gradient(90deg, $bg-color, $bg-color2);
+}
+
+.instruction {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+
+  h1 {
+    opacity: 0.7;
+    font-size: 4rem;
+    text-transform: uppercase;
+  }
+
+  p {
+    text-align: center;
+    margin-top: 2rem;
+  }
 }
 
 .background-container {
@@ -27,7 +47,7 @@ body {
   display: grid;
   place-content: center;
 
-  filter: url(#goo) blur(4px);
+  filter: url(#goo) blur(8px);
 }
 
 .circle {
@@ -53,7 +73,7 @@ body {
         rgba($color2, 0) 50%
       )
       no-repeat;
-    animation: moveInCircle2 15s alternate infinite;
+    animation: moveInCircle2 10s alternate infinite;
   }
 
   &:nth-child(3) {
@@ -67,7 +87,7 @@ body {
       )
       no-repeat;
   }
-  animation: moveInCircle3 15s alternate infinite;
+  animation: moveInCircle3 10s alternate infinite;
 }
 
 .cursor {
@@ -75,9 +95,9 @@ body {
   top: 0;
   left: 0;
 
-  width: 20rem;
-  height: 20rem;
-  opacity: 0.7;
+  width: 16rem;
+  height: 16rem;
+  opacity: 0.9;
   mix-blend-mode: $blending;
 
   background: radial-gradient(

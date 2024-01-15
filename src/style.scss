@@ -1,8 +1,9 @@
-$bg-color: #313131;
+$bg-color: #121212;
+$bg-color2: #010101;
 $color1: rgb(140, 100, 255);
 $color2: rgb(221, 74, 255);
 $color3: rgb(25, 174, 180);
-$color-cursor: rgb(180, 240, 255);
+$color-cursor: rgb(255, 255, 255);
 $blending: hard-light;
 
 * {
@@ -14,7 +15,7 @@ $blending: hard-light;
 body {
   cursor: none;
   overflow: hidden;
-  background-color: $bg-color;
+  background: linear-gradient(90deg, $bg-color, $bg-color2);
 }
 
 .background-container {
@@ -26,7 +27,7 @@ body {
   display: grid;
   place-content: center;
 
-  filter: url(#goo);
+  filter: url(#goo) blur(4px);
 }
 
 .circle {
@@ -52,6 +53,7 @@ body {
         rgba($color2, 0) 50%
       )
       no-repeat;
+    animation: moveInCircle2 15s alternate infinite;
   }
 
   &:nth-child(3) {
@@ -65,6 +67,7 @@ body {
       )
       no-repeat;
   }
+  animation: moveInCircle3 15s alternate infinite;
 }
 
 .cursor {
@@ -72,8 +75,9 @@ body {
   top: 0;
   left: 0;
 
-  width: 10rem;
-  height: 10rem;
+  width: 20rem;
+  height: 20rem;
+  opacity: 0.7;
   mix-blend-mode: $blending;
 
   background: radial-gradient(
@@ -82,4 +86,16 @@ body {
       rgba($color-cursor, 0) 50%
     )
     no-repeat;
+}
+
+@keyframes moveInCircle2 {
+  to {
+    transform: translate3d(-80rem, 0rem, 0) rotate(20deg);
+  }
+}
+
+@keyframes moveInCircle3 {
+  to {
+    transform: translate3d(20rem, -20rem, 0) rotate(-20deg);
+  }
 }
